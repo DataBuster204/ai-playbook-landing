@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stop Doing It the Hard Way — The AI Playbook for Nigerian & African Accountants</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #FDFAF5; color: #2C2C2C; line-height: 1.7; }
+  
+  /* NAV */
+  nav { background: #1A2F4B; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+  nav .logo { color: #C5933A; font-family: Arial, sans-serif; font-weight: bold; font-size: 14px; letter-spacing: 1px; }
+  nav a { color: #e8e0d4; font-family: Arial, sans-serif; font-size: 13px; text-decoration: none; background: #C5933A; padding: 8px 20px; border-radius: 4px; font-weight: bold; }
+  
+  /* HERO */
+  .hero { background: #1A2F4B; color: #F9F6F1; padding: 80px 40px 70px; text-align: center; }
+  .hero .eyebrow { font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #C5933A; margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(32px, 5vw, 58px); line-height: 1.15; margin-bottom: 16px; color: #F9F6F1; max-width: 820px; margin-left: auto; margin-right: auto; }
+  .hero h1 span { color: #C5933A; }
+  .hero .subtitle { font-size: clamp(16px, 2.5vw, 22px); color: #c8bfb0; max-width: 620px; margin: 0 auto 32px; font-style: italic; }
+  .hero .tagline { font-family: Arial, sans-serif; font-size: 14px; color: #a09080; letter-spacing: 1px; margin-bottom: 40px; }
+  .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+  .btn-primary { background: #C5933A; color: #fff; font-family: Arial, sans-serif; font-weight: bold; font-size: 16px; padding: 18px 40px; border-radius: 4px; text-decoration: none; display: inline-block; }
+  .btn-secondary { background: transparent; color: #C5933A; font-family: Arial, sans-serif; font-weight: bold; font-size: 16px; padding: 17px 32px; border-radius: 4px; text-decoration: none; display: inline-block; border: 2px solid #C5933A; }
+  .price-note { font-family: Arial, sans-serif; font-size: 13px; color: #8a8070; }
+  .price-note strong { color: #C5933A; }
+  
+  /* SECTIONS */
+  section { padding: 70px 40px; max-width: 860px; margin: 0 auto; }
+  section.full { max-width: 100%; padding: 70px 40px; }
+  section.full .inner { max-width: 860px; margin: 0 auto; }
+  h2 { font-family: Arial, sans-serif; font-size: clamp(22px, 3vw, 32px); color: #1A2F4B; margin-bottom: 24px; line-height: 1.3; }
+  h3 { font-family: Arial, sans-serif; font-size: 17px; color: #1A2F4B; margin-bottom: 10px; }
+  p { margin-bottom: 16px; font-size: 17px; }
+  
+  /* PAIN STRIP */
+  .pain-strip { background: #1A2F4B; color: #F9F6F1; }
+  .pain-strip .inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
+  .pain-item { border-left: 3px solid #C5933A; padding-left: 20px; }
+  .pain-item p { font-size: 15px; color: #c8bfb0; margin: 0; line-height: 1.6; }
+  
+  /* NUMBERS STRIP */
+  .numbers-strip { background: #F9F6F1; border-top: 1px solid #e8e0d0; border-bottom: 1px solid #e8e0d0; }
+  .numbers-strip .inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+  .num-item .big { font-family: Arial, sans-serif; font-size: 42px; font-weight: bold; color: #C5933A; line-height: 1; }
+  .num-item .small { font-family: Arial, sans-serif; font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
+  
+  /* WEEK COMPARISON */
+  .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+  .comp-card { border-radius: 8px; padding: 28px; }
+  .comp-card.before { background: #f5f0ea; border-left: 4px solid #c04040; }
+  .comp-card.after { background: #eef5ea; border-left: 4px solid #3a8a30; }
+  .comp-card h4 { font-family: Arial, sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .comp-card.before h4 { color: #c04040; }
+  .comp-card.after h4 { color: #3a8a30; }
+  .comp-card ul { list-style: none; padding: 0; }
+  .comp-card ul li { font-size: 14px; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,0.06); color: #444; }
+  .comp-card ul li:last-child { border-bottom: none; }
+  .comp-card .total { font-family: Arial, sans-serif; font-weight: bold; font-size: 15px; margin-top: 14px; padding-top: 10px; border-top: 2px solid; }
+  .comp-card.before .total { color: #c04040; border-color: #c04040; }
+  .comp-card.after .total { color: #3a8a30; border-color: #3a8a30; }
+  
+  /* CHAPTERS */
+  .chapters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 32px 0; }
+  .chapter-card { background: #F9F6F1; border-radius: 6px; padding: 20px; border-top: 3px solid #C5933A; }
+  .chapter-card .ch-num { font-family: Arial, sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #C5933A; margin-bottom: 6px; }
+  .chapter-card h4 { font-family: Arial, sans-serif; font-size: 14px; color: #1A2F4B; margin-bottom: 6px; }
+  .chapter-card p { font-size: 13px; color: #666; margin: 0; line-height: 1.5; }
+  
+  /* PROMPT BOX */
+  .prompt-preview { background: #F9F6F1; border-left: 4px solid #C5933A; padding: 20px 24px; margin: 24px 0; border-radius: 0 6px 6px 0; font-size: 15px; font-style: italic; color: #444; line-height: 1.7; }
+  .prompt-label { font-family: Arial, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #C5933A; margin-bottom: 10px; font-style: normal; font-weight: bold; }
+  
+  /* AUTHOR */
+  .author-section { background: #1A2F4B; color: #F9F6F1; }
+  .author-section .inner { display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: start; }
+  .author-avatar { width: 160px; height: 160px; border-radius: 50%; background: #2a4060; border: 4px solid #C5933A; display: flex; align-items: center; justify-content: center; font-family: Arial, sans-serif; font-size: 48px; color: #C5933A; flex-shrink: 0; }
+  .author-section h2 { color: #F9F6F1; margin-bottom: 16px; }
+  .author-section p { color: #c8bfb0; font-size: 16px; }
+  
+  /* PRICING */
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin: 32px 0; }
+  .price-card { border-radius: 8px; padding: 32px 28px; text-align: center; border: 1px solid #e0d8cc; }
+  .price-card.featured { background: #1A2F4B; color: #F9F6F1; border-color: #1A2F4B; position: relative; }
+  .price-card.featured::before { content: "MOST POPULAR"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #C5933A; color: #fff; font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 1px; padding: 4px 12px; border-radius: 10px; font-weight: bold; }
+  .price-card h3 { font-family: Arial, sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .price-card.featured h3 { color: #C5933A; }
+  .price-amount { font-family: Arial, sans-serif; font-size: 40px; font-weight: bold; color: #C5933A; line-height: 1; margin-bottom: 6px; }
+  .price-card.featured .price-amount { color: #C5933A; }
+  .price-sub { font-family: Arial, sans-serif; font-size: 12px; color: #888; margin-bottom: 24px; }
+  .price-card.featured .price-sub { color: #a09080; }
+  .price-features { list-style: none; text-align: left; margin-bottom: 28px; }
+  .price-features li { font-size: 14px; padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,0.06); color: #555; }
+  .price-card.featured .price-features li { color: #c8bfb0; border-bottom-color: rgba(255,255,255,0.08); }
+  .price-features li::before { content: "✓ "; color: #C5933A; font-weight: bold; }
+  .btn-buy { display: block; background: #C5933A; color: #fff; font-family: Arial, sans-serif; font-weight: bold; font-size: 15px; padding: 14px 24px; border-radius: 4px; text-decoration: none; }
+  .btn-buy-outline { display: block; background: transparent; color: #1A2F4B; font-family: Arial, sans-serif; font-weight: bold; font-size: 15px; padding: 13px 24px; border-radius: 4px; text-decoration: none; border: 2px solid #1A2F4B; }
+  .price-card.featured .btn-buy { background: #C5933A; }
+  
+  /* FAQ */
+  .faq-item { border-bottom: 1px solid #e8e0d0; padding: 20px 0; }
+  .faq-item h4 { font-family: Arial, sans-serif; font-size: 16px; color: #1A2F4B; margin-bottom: 8px; }
+  .faq-item p { font-size: 15px; color: #555; margin: 0; }
+  
+  /* FINAL CTA */
+  .final-cta { background: #C5933A; color: #fff; text-align: center; padding: 70px 40px; }
+  .final-cta h2 { color: #fff; font-size: clamp(24px, 4vw, 40px); margin-bottom: 16px; }
+  .final-cta p { color: rgba(255,255,255,0.85); font-size: 18px; max-width: 560px; margin: 0 auto 32px; }
+  .final-cta .btn-white { background: #fff; color: #C5933A; font-family: Arial, sans-serif; font-weight: bold; font-size: 16px; padding: 18px 40px; border-radius: 4px; text-decoration: none; display: inline-block; }
+  .final-cta .price-note { color: rgba(255,255,255,0.7); font-family: Arial, sans-serif; font-size: 13px; margin-top: 16px; }
+  
+  footer { background: #1A2F4B; color: #667; text-align: center; padding: 24px; font-family: Arial, sans-serif; font-size: 12px; }
+  
+  @media (max-width: 640px) {
+    nav { padding: 12px 20px; }
+    .hero { padding: 60px 20px 50px; }
+    section, section.full { padding: 50px 20px; }
+    .numbers-strip .inner { grid-template-columns: repeat(2, 1fr); }
+    .comparison { grid-template-columns: 1fr; }
+    .author-section .inner { grid-template-columns: 1fr; }
+    .author-avatar { margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">OLUMIDE DARAMOLA</div>
+  <a href="https://selar.com/7815e5l118" target="_blank">Pre-Order →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">Launching 1st June · For Nigerian & African Accountants</div>
+  <h1>Stop Doing It<br><span>the Hard Way.</span></h1>
+  <p class="subtitle">The AI Playbook for Nigerian and African Accountants</p>
+  <p class="tagline">Save Time &nbsp;·&nbsp; Serve Better &nbsp;·&nbsp; Stay Ahead</p>
+  <div class="cta-group">
+    <a href="https://selar.com/7815e5l118" class="btn-primary" target="_blank">Pre-Order Now — ₦9,000</a>
+    <a href="https://selar.com/1o66660471" class="btn-secondary" target="_blank">Get 10 Free Prompts</a>
+  </div>
+  <p class="price-note">Pre-order price: <strong>₦9,000</strong> · Rises to ₦12,500 on launch day &nbsp;·&nbsp; Naira & dollar cards accepted &nbsp;·&nbsp; Instant digital download</p>
+</div>
+
+<!-- PAIN STRIP -->
+<section class="full pain-strip">
+  <div class="inner">
+    <div class="pain-item"><p>You spent four hours this week writing reports and commentary that a colleague using AI finished in forty minutes.</p></div>
+    <div class="pain-item"><p>You know AI exists. You have tried it once or twice. The result was generic and you went back to doing it yourself.</p></div>
+    <div class="pain-item"><p>The gap between accountants who use AI properly and those who do not is opening fast. It shows up in billable hours, client experience, and career trajectory.</p></div>
+    <div class="pain-item"><p>Nobody has written a guide for this profession in this market. Until now.</p></div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="full numbers-strip">
+  <div class="inner">
+    <div class="num-item"><div class="big">10–12</div><div class="small">Hours saved per week on drafting alone</div></div>
+    <div class="num-item"><div class="big">65+</div><div class="small">Ready-to-use prompts inside</div></div>
+    <div class="num-item"><div class="big">13</div><div class="small">Chapters covering every area of practice</div></div>
+    <div class="num-item"><div class="big">1</div><div class="small">Book written specifically for Nigerian & African practice</div></div>
+  </div>
+</section>
+
+<!-- THE WEEK COMPARISON -->
+<section>
+  <h2>What Does a Week With AI Actually Look Like?</h2>
+  <p>This is not a hypothetical. These are real time estimates across the core writing and communication tasks that fill an accountant's week.</p>
+  <div class="comparison">
+    <div class="comp-card before">
+      <h4>Without AI — Current Reality</h4>
+      <ul>
+        <li>Monday: Management commentary — 3.5 hrs</li>
+        <li>Tuesday: Client emails (5 difficult ones) — 2 hrs</li>
+        <li>Wednesday: FIRS correspondence — 2.5 hrs</li>
+        <li>Thursday: Board pack narrative — 4 hrs</li>
+        <li>Friday: Variance explanations — 2 hrs</li>
+      </ul>
+      <div class="total">Total: 14–18 hours on drafting &amp; communication</div>
+    </div>
+    <div class="comp-card after">
+      <h4>With AI — After This Book</h4>
+      <ul>
+        <li>Monday: Management commentary — 45 mins</li>
+        <li>Tuesday: Client emails (5 difficult ones) — 30 mins</li>
+        <li>Wednesday: FIRS correspondence — 40 mins</li>
+        <li>Thursday: Board pack narrative — 60 mins</li>
+        <li>Friday: Variance explanations — 30 mins</li>
+      </ul>
+      <div class="total">Total: 5–6 hours. Saving 10–12 hours every week.</div>
+    </div>
+  </div>
+  <p style="font-size:15px; color:#666; font-style:italic;">Ten to twelve hours. Every week. On drafting and communication alone. That is time that can go back to clients who need more attention, to the analysis that only you can do, or to your own life.</p>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section id="inside" style="background: #F9F6F1; max-width: 100%; padding: 70px 40px;">
+<div style="max-width: 860px; margin: 0 auto;">
+  <h2>What Is Inside the Book</h2>
+  <p>Thirteen chapters. Every major area of accounting practice. Every prompt tested on real Nigerian accounting scenarios — not US or UK examples that do not fit your reality.</p>
+  <div class="chapters-grid">
+    <div class="chapter-card"><div class="ch-num">Chapter 1</div><h4>The African Accountant's Advantage</h4><p>Why this moment is a genuine opportunity, not just hype. What makes Nigerian practitioners particularly well-positioned to benefit.</p></div>
+    <div class="chapter-card"><div class="ch-num">Chapter 2</div><h4>What AI Actually Is</h4><p>Enough to use it confidently. Not one paragraph more. Tools, access, privacy, Nigerian payment options explained.</p></div>
+    <div class="chapter-card"><div class="ch-num">Chapter 3</div><h4>The Accountant's Prompting Method</h4><p>The Five-Part Brief framework. Master this chapter and every other prompt in the book becomes twice as useful.</p></div>
+    <div class="chapter-card"><div class="ch-num">Chapter 4</div><h4>The Numbers</h4><p>Management commentary, variance analysis, ratio narratives, trend reports. Write them faster and better.</p></div>
+    <div class="chapter-card"><div class="ch-num">Chapter 5</div><h4>The Client</h4><p>Difficult emails, plain-language explanations, advisory letters, follow-ups, FIRS correspondence. The communication layer.</p></div>
+    <div class="chapter-card"><div class="ch-num">Chapter 6</div><h4>The Books</h4><p>Reconciliations, chart of accounts, messy records, PAYE schedules, payroll runs. The ground-floor work done properly.</p></div>
+    <div class="chapter-card"><div class="ch-num">Chapter 7</div><h4>The Discrepancies</h4><p>What to do when something does not add up. First-pass reviews, unusual patterns, investigation memos.</p></div>
+    <div class="chapter-card"><div class="ch-num">Chapter 8</div><h4>The Audit</h4><p>Working paper narratives, management representation letters, compliance checklists, management letter observations.</p></div>
+    <div class="chapter-card"><div class="ch-num">Chapter 9</div><h4>The Strategy</h4><p>Board packs, scenario analysis, banker presentations, difficult board conversations. Finance as a decision-making tool.</p></div>
+    <div class="chapter-card"><div class="ch-num">Chapter 10</div><h4>The Nigerian Specifics</h4><p>Record reconstruction, FIRS objection letters, multi-currency transactions, informal clients, business formalisation. Nobody else covers this.</p></div>
+    <div class="chapter-card"><div class="ch-num">Chapter 11</div><h4>Building Your AI Workflow</h4><p>Prompt libraries, weekly rhythms, context documents, quality checklists. Plus: AI for ICAN, ACCA, and ATSWA exam prep.</p></div>
+    <div class="chapter-card"><div class="ch-num">Chapter 12</div><h4>Scaling It Firm-Wide</h4><p>From solo user to team standard. Business case, usage policy, training sessions, role-specific prompt packs.</p></div>
+    <div class="chapter-card"><div class="ch-num">Chapter 13</div><h4>What Comes Next</h4><p>The automation curve, skills that hold their value, what clients will expect, the African opportunity. Where this profession goes from here.</p></div>
+  </div>
+
+  <p style="margin-top: 16px;">Plus a <strong>30-Day Action Plan</strong> and an <strong>Appendix</strong> with the complete 65-prompt library, glossary of AI terms, and resource guide.</p>
+</div>
+</section>
+
+<!-- SAMPLE PROMPT -->
+<section>
+  <h2>This Is What the Prompts Look Like</h2>
+  <p>Every prompt in the book is written for Nigerian practice — specific context, real numbers, the regulatory environment you actually work in. Here is one example from Chapter 5:</p>
+  <div class="prompt-preview">
+    <div class="prompt-label">Prompt 5.1 — Delivering Difficult News to a Client</div>
+    I am a chartered accountant writing to a client who runs a printing business in Lagos. I need to write a professional email informing them that their income tax liability for the 2023 tax year is significantly higher than they anticipated. The key facts are: their taxable profit came in at ₦18.4 million, compared to their informal estimate of around ₦12 million... The resulting tax liability is ₦5.5 million, which must be settled within 60 days to avoid penalties. I want the email to explain clearly what happened and why, avoid accusatory language, tell them exactly what they need to do and by when, and invite them to call me to discuss. Professional but warm tone. No more than four short paragraphs.
+  </div>
+  <p style="font-size:15px; color:#666;">That prompt takes 90 seconds to adapt to your client's specific situation. The email comes back in under a minute. You review, adjust the details, and send. Total time: 8 minutes instead of 45.</p>
+  <p style="font-size:15px; color:#666;">Every chapter has prompts written at this level. Not generic templates — specific, contextualised, and ready to use on real Nigerian accounting work.</p>
+</section>
+
+<!-- AUTHOR -->
+<section class="full author-section">
+  <div class="inner">
+    <div class="author-avatar">OD</div>
+    <div>
+      <h2>Olumide Daramola</h2>
+      <p>This book was written from inside the profession, not from outside looking in. Every scenario, every prompt, every refinement tip reflects the reality of accounting practice in Nigeria and across Africa — the clients whose records live on WhatsApp, the FIRS queries that need exactly the right tone, the management commentary that has to make sense to an owner who did not study accounting.</p>
+      <p>The prompts in this book were built, tested, and refined on actual accounting work. Not on hypothetical US or UK scenarios that have to be mentally translated before they are useful.</p>
+      <p>If you have been using AI occasionally and getting inconsistent results, this book is about making it work consistently — for the specific work you do, in the specific market you operate in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="text-align: center;">
+  <h2>Get the Book</h2>
+  <p style="max-width: 520px; margin: 0 auto 40px; color: #666; font-size:16px;">Instant digital download. Read it on any device. Start using the prompts on real work within the hour.</p>
+  <div class="pricing-grid" style="max-width: 740px; margin: 0 auto;">
+
+    <div class="price-card featured">
+      <div style="background: #C5933A; color: #fff; font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; letter-spacing: 1px; padding: 6px 16px; border-radius: 20px; display: inline-block; margin-bottom: 16px;">PRE-ORDER · LAUNCHES 1ST JUNE</div>
+      <h3>The AI Playbook</h3>
+      <div class="price-amount">₦9,000</div>
+      <div class="price-sub" style="text-decoration: line-through; color: #999;">₦12,000 on launch day</div>
+      <ul class="price-features">
+        <li>Complete 13-chapter book (PDF)</li>
+        <li>65 ready-to-use prompts for accountants</li>
+        <li>30-Day Action Plan</li>
+        <li>AI glossary and resource guide</li>
+        <li>All future updates included</li>
+      </ul>
+      <a href="https://selar.com/7815e5l118" class="btn-buy" target="_blank">Pre-Order Now — ₦9,000</a>
+    </div>
+
+    <div class="price-card">
+      <div style="background: #1A2F4B; color: #C5933A; font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; letter-spacing: 1px; padding: 6px 16px; border-radius: 20px; display: inline-block; margin-bottom: 16px;">ADD-ON · OPTIONAL</div>
+      <h3>150 Prompts Cheat Sheet</h3>
+      <div class="price-amount">₦3,000</div>
+      <div class="price-sub">Standalone purchase · No book required</div>
+      <ul class="price-features">
+        <li>150 prompts categorised by task type</li>
+        <li>Audit, tax, reporting, client comms & more</li>
+        <li>Quick-reference format — keep it open while you work</li>
+        <li>Editable — adapt every prompt to your practice</li>
+        <li>All future updates included</li>
+      </ul>
+      <a href="https://selar.com/7815e5l118" class="btn-buy-outline" target="_blank">Get the Cheat Sheet — ₦3,000</a>
+    </div>
+
+  </div>
+  <p style="margin-top: 24px; font-family: Arial, sans-serif; font-size: 13px; color: #999;">Pre-order price of ₦9,000 valid until 1st June &nbsp;·&nbsp; Secure payment via Paystack &nbsp;·&nbsp; Naira and dollar cards accepted</p>
+  <p style="margin-top: 8px; font-family: Arial, sans-serif; font-size: 13px; color: #999;">Firm / team orders of 5+ copies: contact <a href="mailto:olumidaramola@gmail.com" style="color: #C5933A;">olumidaramola@gmail.com</a> for a 25% discount</p>
+</section>
+
+<!-- FAQ -->
+<section style="background: #F9F6F1; max-width: 100%; padding: 70px 40px;">
+<div style="max-width: 700px; margin: 0 auto;">
+  <h2>Questions</h2>
+  <div class="faq-item">
+    <h4>I already use ChatGPT sometimes. Is this still useful for me?</h4>
+    <p>Yes — and probably more useful than for someone starting from scratch. Occasional ChatGPT use without a method produces inconsistent results. This book gives you the method: how to brief the model, how to follow up, how to build reusable templates, and how to integrate it into your actual workflow rather than using it ad hoc.</p>
+  </div>
+  <div class="faq-item">
+    <h4>Is this relevant outside Nigeria?</h4>
+    <p>The method works everywhere. The examples, regulatory context, and specific scenarios are Nigerian — FIRS, CITA, PITA, ICAN standards, the realities of Nigerian clients and practice. Accountants in Ghana, Kenya, Uganda, South Africa, and across the continent will find it directly applicable. Diaspora accountants also find the Nigerian context useful if they serve Nigerian clients or businesses.</p>
+  </div>
+  <div class="faq-item">
+    <h4>Do I need to be technical to use this?</h4>
+    <p>No. Chapter 2 explains exactly what these tools are and how they work — enough to use them confidently, not one paragraph more. If you can type a clear brief to a colleague, you can use the prompts in this book.</p>
+  </div>
+  <div class="faq-item">
+    <h4>What format is the book in?</h4>
+    <p>PDF, formatted for screen and print reading. You can read it on your laptop, phone, or tablet. The prompts are formatted for easy copying and adapting.</p>
+  </div>
+  <d
